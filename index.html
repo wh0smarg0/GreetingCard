@@ -1,48 +1,81 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>UMO Generator</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMO Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
+<div class="main-wrapper">
+    <div class="settings-panel">
+        <h1>UMO Generator</h1>
+        
+        <div class="form-group">
+            <label>Тип картки:</label>
+            <select id="templateType" onchange="updateTemplate()">
+                <option value="welcome">Вітаємо в команді (з фото)</option>
+                <option value="birthday">День народження (без фото)</option>
+            </select>
+        </div>
 
-  <h1>Генератор карток</h1>
+        <div class="form-group">
+            <label>Ім'я та Прізвище:</label>
+            <input type="text" id="name" placeholder="Бабич Вікторія" oninput="syncText()">
+        </div>
 
-  <div class="form">
-    <select id="templateType">
-      <option value="welcome">Новий співробітник</option>
-      <option value="birthday">День народження</option>
-    </select>
+        <div class="form-group" id="positionGroup">
+            <label>Посада:</label>
+            <input type="text" id="position" placeholder="Менеджер з комунікацій" oninput="syncText()">
+        </div>
 
-    <input type="text" id="name" placeholder="Ім'я та прізвище">
-    <input type="text" id="position" placeholder="Посада">
-    <textarea id="message" placeholder="Текст привітання"></textarea>
+        <div class="form-group">
+            <label>Текст привітання:</label>
+            <textarea id="message" placeholder="Ваші побажання..." oninput="syncText()"></textarea>
+        </div>
 
-    <input type="file" id="photo">
+        <div class="form-group" id="photoGroup">
+            <label>Фото співробітника:</label>
+            <input type="file" id="photo" accept="image/*" onchange="handlePhoto(event)">
+        </div>
 
-    <button onclick="generate()">Згенерувати</button>
-    <button onclick="download()">Завантажити PNG</button>
-  </div>
+        <div class="actions">
+            <button class="btn-download" onclick="download()">Завантажити PNG</button>
+        </div>
+    </div>
 
-  <!-- PREVIEW -->
-  <div id="card" class="card welcome">
+    <div class="preview-panel">
+        <div id="card" class="card welcome-mode">
+            <div class="decor decor-1"></div>
+            <div class="decor decor-2"></div>
+            <div class="decor decor-3"></div>
 
-    <div class="logo">UMO</div>
+            <div class="card-content">
+                <div class="logo-container">
+                    <img src="logo.png" alt="UMO" class="umo-logo">
+                </div>
 
-    <h2 id="title">ЛАСКАВО ПРОСИМО</h2>
+                <h2 id="title">ВІТАЄМО В КОМАНДІ!</h2>
 
-    <img id="previewPhoto">
+                <div class="photo-wrapper" id="previewPhotoWrapper">
+                    <div class="photo-circle">
+                        <img id="previewPhoto" src="" alt="">
+                    </div>
+                </div>
 
-    <h3 id="previewName">Ім’я</h3>
-    <p id="previewPosition">Посада</p>
+                <div class="text-block">
+                    <h3 id="previewName">Ім’я Прізвище</h3>
+                    <p id="previewPosition">Посада</p>
+                    <div class="divider"></div>
+                    <p id="previewMessage">Текст привітання буде тут...</p>
+                </div>
 
-    <p id="previewMessage">Текст...</p>
-
-  </div>
-
+                <div class="footer-signature">Команда UMO</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
