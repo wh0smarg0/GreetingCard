@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>UMO Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Генератор карток</h1>
+
+  <div class="form">
+    <select id="templateType">
+      <option value="welcome">Новий співробітник</option>
+      <option value="birthday">День народження</option>
+    </select>
+
+    <input type="text" id="name" placeholder="Ім'я та прізвище">
+    <input type="text" id="position" placeholder="Посада">
+    <textarea id="message" placeholder="Текст привітання"></textarea>
+
+    <input type="file" id="photo">
+
+    <button onclick="generate()">Згенерувати</button>
+    <button onclick="download()">Завантажити PNG</button>
+  </div>
+
+  <!-- PREVIEW -->
+  <div id="card" class="card welcome">
+
+    <div class="logo">UMO</div>
+
+    <h2 id="title">ЛАСКАВО ПРОСИМО</h2>
+
+    <img id="previewPhoto">
+
+    <h3 id="previewName">Ім’я</h3>
+    <p id="previewPosition">Посада</p>
+
+    <p id="previewMessage">Текст...</p>
+
+  </div>
+
+</div>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
