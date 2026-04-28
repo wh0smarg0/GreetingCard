@@ -31,11 +31,14 @@ function updateTemplate() {
     syncText();
 }
 
+// Завантаження фотографії
 function handlePhoto(event) {
     const reader = new FileReader();
     reader.onload = function() {
-        const output = document.getElementById('previewPhoto');
-        output.src = reader.result;
+        // Знаходимо контейнер, який буде тримати фон
+        const circle = document.getElementById('previewPhotoCircle');
+        // Встановлюємо фотографію як фонове зображення цього контейнера
+        circle.style.backgroundImage = `url(${reader.result})`;
     }
     reader.readAsDataURL(event.target.files[0]);
 }
@@ -51,7 +54,15 @@ function download() {
         scale: 4,               // Збільшуємо масштаб у 4 рази для кришталевої чіткості
         useCORS: true,          // Дозволяє вантажити зовнішні шрифти та картинки
         backgroundColor: null,  // Робить фон за межами картки прозорим
-        logging: false          // Вимикає зайві системні повідомлення
+        logging: false,         // Вимикає зайві системні повідомлення
+
+        // --- МАЛЕНЬКА ХИТРІСТЬ ДЛЯ ІДЕАЛЬНОГО ФОТО ---
+        // Якщо у вас раптом дублюється фото, ця функція гарантує, що
+        // capture (знімок) буде тільки фонового зображення кола.
+        onclone: (clonedDoc) => {
+            const clonedImg = clonedDoc.getElementById('previewPhoto');
+            if (clonedImg) clonedImg.remove();
+        }
     }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'UMO-Greeting-Card.png';
