@@ -33,12 +33,29 @@ function updateTemplate() {
 
 // Завантаження фотографії
 function handlePhoto(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
     const reader = new FileReader();
     reader.onload = function() {
         const img = document.getElementById('previewPhoto');
+        
+        // Коли фото завантажиться, скрипт вимірює його пропорції
+        img.onload = function() {
+            if (img.naturalWidth > img.naturalHeight) {
+                // Горизонтальне фото (пейзаж)
+                img.style.height = '100%';
+                img.style.width = 'auto';
+            } else {
+                // Вертикальне фото (портрет) або ідеальний квадрат
+                img.style.width = '100%';
+                img.style.height = 'auto';
+            }
+        };
+        
         img.src = reader.result;
-    }
-    reader.readAsDataURL(event.target.files[0]);
+    };
+    reader.readAsDataURL(file);
 }
 
 // Генерація та завантаження PNG
