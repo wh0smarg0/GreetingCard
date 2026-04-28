@@ -40,23 +40,27 @@ function handlePhoto(event) {
     reader.readAsDataURL(event.target.files[0]);
 }
 
+// Генерація та завантаження PNG
 function download() {
     const card = document.getElementById('card');
-    
-    // Тимчасово прибираємо заокруглення кутів для чистого PNG
+
+    // Тимчасово прибираємо заокруглення для ідеального зрізу картинки
     card.style.borderRadius = "0";
 
     html2canvas(card, {
-        scale: 2, // Висока якість
-        useCORS: true
+        scale: 4,               // Збільшуємо масштаб у 4 рази для кришталевої чіткості
+        useCORS: true,          // Дозволяє вантажити зовнішні шрифти та картинки
+        backgroundColor: null,  // Робить фон за межами картки прозорим
+        logging: false          // Вимикає зайві системні повідомлення
     }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'UMO-Greeting-Card.png';
-        link.href = canvas.toDataURL();
+        // Зберігаємо як PNG з максимальною якістю (1.0)
+        link.href = canvas.toDataURL('image/png', 1.0);
         link.click();
-        
-        // Повертаємо кути назад
-        card.style.borderRadius = "10px";
+
+        // Повертаємо заокруглення назад в інтерфейсі
+        card.style.borderRadius = "15px";
     });
 }
 
