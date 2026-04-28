@@ -33,44 +33,49 @@ function updateTemplate() {
 
 // Завантаження фотографії
 function handlePhoto(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
     const reader = new FileReader();
     reader.onload = function() {
-        // Знаходимо контейнер, який буде тримати фон
-        const circle = document.getElementById('previewPhotoCircle');
-        // Встановлюємо фотографію як фонове зображення цього контейнера
-        circle.style.backgroundImage = `url(${reader.result})`;
-    }
-    reader.readAsDataURL(event.target.files[0]);
+        const img = document.getElementById('previewPhoto');
+        
+        // Коли фото завантажиться, скрипт вимірює його пропорції
+        img.onload = function() {
+            if (img.naturalWidth > img.naturalHeight) {
+                // Горизонтальне фото (пейзаж)
+                img.style.height = '100%';
+                img.style.width = 'auto';
+            } else {
+                // Вертикальне фото (портрет) або ідеальний квадрат
+                img.style.width = '100%';
+                img.style.height = 'auto';
+            }
+        };
+        
+        img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
 }
 
 // Генерація та завантаження PNG
 function download() {
     const card = document.getElementById('card');
-
+    
     // Тимчасово прибираємо заокруглення для ідеального зрізу картинки
     card.style.borderRadius = "0";
 
     html2canvas(card, {
-        scale: 4,               // Збільшуємо масштаб у 4 рази для кришталевої чіткості
-        useCORS: true,          // Дозволяє вантажити зовнішні шрифти та картинки
-        backgroundColor: null,  // Робить фон за межами картки прозорим
-        logging: false,         // Вимикає зайві системні повідомлення
-
-        // --- МАЛЕНЬКА ХИТРІСТЬ ДЛЯ ІДЕАЛЬНОГО ФОТО ---
-        // Якщо у вас раптом дублюється фото, ця функція гарантує, що
-        // capture (знімок) буде тільки фонового зображення кола.
-        onclone: (clonedDoc) => {
-            const clonedImg = clonedDoc.getElementById('previewPhoto');
-            if (clonedImg) clonedImg.remove();
-        }
+        scale: 4,               // Зберігаємо 4х якість
+        useCORS: true,          
+        backgroundColor: null,  
+        logging: false          
     }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'UMO-Greeting-Card.png';
-        // Зберігаємо як PNG з максимальною якістю (1.0)
-        link.href = canvas.toDataURL('image/png', 1.0);
+        link.href = canvas.toDataURL('image/png', 1.0); 
         link.click();
-
-        // Повертаємо заокруглення назад в інтерфейсі
+        
         card.style.borderRadius = "15px";
     });
 }
