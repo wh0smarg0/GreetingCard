@@ -4,9 +4,11 @@
     --light-bg: #f4f7f9;
 }
 
+/* Оновлений фон зі світлом, що розсіюється */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--light-bg);
+    /* М'яке радіальне світло на всю сторінку замість суцільного кольору */
+    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #e8eef3 85%);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -14,13 +16,38 @@ body {
     min-height: 100vh;
 }
 
+/* Контейнер без різких тіней та контурів */
 .main-wrapper {
     display: flex;
     background: white;
     padding: 30px;
+    border: none; /* Прибрано контур */
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    /* М'яке розсіяне світіння замість звичайної тіні */
+    box-shadow: 0 0 60px rgba(26, 54, 100, 0.08); 
     gap: 40px;
+}
+
+/* Поля форми без різких рамок */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: none; /* Прибрано контур */
+    border-radius: 8px;
+    background-color: #f4f7fa; /* Легкий фон для полів */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: 0.3s ease;
+}
+
+/* Ідеально чисте лого без фону */
+.umo-logo {
+    width: 120px;
+    margin-bottom: 20px;
+    mix-blend-mode: screen;
+    /* Знебарвлюємо та викручуємо контраст, щоб вбити сірий контур */
+    filter: grayscale(100%) contrast(500%);
 }
 
 /* Форма */
@@ -73,12 +100,6 @@ textarea { height: 100px; resize: none; }
     box-sizing: border-box;
     text-align: center;
     border-radius: 10px; /* Тільки для прев'ю */
-}
-
-.umo-logo {
-    width: 120px;
-    margin-bottom: 20px;
-    mix-blend-mode: screen; /* Цей рядок приховає чорний колір */
 }
 
 #title {
