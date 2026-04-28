@@ -78,7 +78,7 @@ textarea { height: 100px; resize: none; }
 .umo-logo {
     width: 120px;
     margin-bottom: 20px;
-    filter: brightness(0) invert(1); /* Робимо лого білим, якщо воно темне */
+    /*filter: brightness(0) invert(1); Робимо лого білим, якщо воно темне */
 }
 
 #title {
