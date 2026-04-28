@@ -4,7 +4,9 @@
     --light-bg: #f4f7f9;
 }
 
-/* Оновлений фон зі світлом, що розсіюється */
+/* =========================================
+   1. ГЛОБАЛЬНІ СТИЛІ ТА ФОН СТОРІНКИ
+   ========================================= */
 body {
     font-family: 'Montserrat', sans-serif;
     /* М'яке радіальне світло на всю сторінку замість суцільного кольору */
@@ -20,109 +22,133 @@ body {
 .main-wrapper {
     display: flex;
     background: white;
-    padding: 30px;
-    border: none; /* Прибрано контур */
+    padding: 40px;
+    border: none;
     border-radius: 20px;
-    /* М'яке розсіяне світіння замість звичайної тіні */
+    /* М'яке розсіяне світіння */
     box-shadow: 0 0 60px rgba(26, 54, 100, 0.08); 
-    gap: 40px;
+    gap: 50px;
+}
+
+/* =========================================
+   2. ЛІВА ПАНЕЛЬ: ФОРМА ТА КЕРУВАННЯ
+   ========================================= */
+.settings-panel {
+    width: 350px;
+}
+
+h1 { 
+    color: var(--umo-blue); 
+    font-size: 26px; 
+    font-weight: 900;
+    margin-bottom: 25px; 
+}
+
+.form-group { margin-bottom: 18px; }
+
+label { 
+    display: block; 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+    color: #4a5568; 
+    font-size: 14px; 
 }
 
 /* Поля форми без різких рамок */
 input, select, textarea {
     width: 100%;
-    padding: 12px;
-    border: none; /* Прибрано контур */
+    padding: 14px;
+    border: none;
     border-radius: 8px;
-    background-color: #f4f7fa; /* Легкий фон для полів */
+    background-color: #f4f7fa;
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
     box-sizing: border-box;
     font-family: inherit;
+    font-size: 14px;
     transition: 0.3s ease;
 }
 
-/* Ідеально чисте лого без фону */
-.umo-logo {
-    width: 120px;
-    margin-bottom: 20px;
-    mix-blend-mode: screen;
-    /* Знебарвлюємо та викручуємо контраст, щоб вбити сірий контур */
-    filter: grayscale(100%) contrast(500%);
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    background-color: #eef2f6;
 }
 
-/* Форма */
-.settings-panel {
-    width: 350px;
+textarea { 
+    height: 110px; 
+    resize: none; 
 }
-
-h1 { color: var(--umo-blue); font-size: 24px; margin-bottom: 20px; }
-
-.form-group { margin-bottom: 15px; }
-label { display: block; font-weight: bold; margin-bottom: 5px; color: #555; font-size: 14px; }
-
-input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-family: inherit;
-}
-
-textarea { height: 100px; resize: none; }
 
 .btn-download {
     width: 100%;
-    padding: 15px;
+    padding: 18px;
     background: var(--umo-blue);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(26, 54, 100, 0.3);
     transition: 0.3s;
 }
 
-.btn-download:hover { opacity: 0.9; }
+.btn-download:hover { 
+    opacity: 0.9; 
+    transform: translateY(-2px);
+}
 
-/* КАРТКА */
+/* =========================================
+   3. ПРАВА ПАНЕЛЬ: КАРТКА ПРЕВ'Ю
+   ========================================= */
 .card {
     width: 500px;
     height: 700px;
-    background-color: var(--umo-blue);
+    /* Градієнт для глибини фону картки */
+    background: linear-gradient(135deg, #1A3664 0%, #12284b 100%);
     position: relative;
     overflow: hidden;
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 50px 40px;
     box-sizing: border-box;
     text-align: center;
-    border-radius: 10px; /* Тільки для прев'ю */
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(26, 54, 100, 0.2);
+}
+
+/* Ідеально чисте лого без чорного фону */
+.umo-logo {
+    width: 120px;
+    margin-bottom: 20px;
+    mix-blend-mode: screen;
+    filter: grayscale(100%) contrast(500%);
 }
 
 #title {
     font-weight: 900;
-    font-size: 28px;
-    margin: 10px 0;
+    font-size: 26px;
+    margin: 10px 0 30px 0;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 }
 
-/* Фото */
+/* Фотографії */
 .photo-wrapper {
-    margin: 30px auto;
+    margin: 20px auto 30px auto;
 }
 
 .photo-circle {
-    width: 200px;
-    height: 200px;
-    border: 5px solid white;
+    width: 180px;
+    height: 180px;
+    border: 6px solid rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto;
     background: #2a4a80;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 #previewPhoto {
@@ -131,20 +157,94 @@ textarea { height: 100px; resize: none; }
     object-fit: cover;
 }
 
-/* Текст */
-#previewName { font-size: 32px; margin: 10px 0 5px 0; }
-#previewPosition { font-size: 18px; opacity: 0.8; margin-bottom: 20px; }
-.divider { width: 50px; height: 3px; background: white; margin: 15px auto; }
-#previewMessage { font-size: 16px; line-height: 1.5; font-style: italic; }
+/* Типографіка картки */
+#previewName { 
+    font-size: 36px; 
+    font-weight: 900;
+    margin: 10px 0 5px 0; 
+}
+
+#previewPosition { 
+    font-size: 16px; 
+    font-weight: 500;
+    color: #a0aec0; 
+    margin-bottom: 20px; 
+}
+
+.divider { 
+    width: 50px; 
+    height: 3px; 
+    background: white; 
+    margin: 20px auto; 
+    border-radius: 2px;
+}
+
+#previewMessage { 
+    font-size: 15px; 
+    line-height: 1.6; 
+    max-width: 340px;
+    margin: 0 auto;
+    font-weight: 400;
+}
 
 .footer-signature {
     margin-top: auto;
     font-weight: bold;
     font-size: 14px;
     opacity: 0.7;
+    letter-spacing: 0.5px;
 }
 
-/* РЕЖИМ ДНЯ НАРОДЖЕННЯ */
+/* =========================================
+   4. ДЕКОРАТИВНІ ЕЛЕМЕНТИ (СВЯТКОВИЙ АКЦЕНТ)
+   ========================================= */
+.decor {
+    position: absolute;
+    z-index: 0;
+}
+
+.card-content {
+    position: relative;
+    z-index: 1; /* Текст та фото завжди над декором */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.decor::before {
+    filter: grayscale(1) brightness(2); /* Робимо емоджі білими */
+    opacity: 0.15;
+}
+
+.decor-1::before { 
+    content: "🎈"; 
+    left: 30px; 
+    top: 80px; 
+    font-size: 60px; 
+    position: absolute; 
+    transform: rotate(-15deg); 
+}
+
+.decor-2::before { 
+    content: "🎁"; 
+    right: 40px; 
+    top: 250px; 
+    font-size: 55px; 
+    position: absolute; 
+    transform: rotate(10deg); 
+}
+
+.decor-3::before { 
+    content: "🎉"; 
+    left: 40px; 
+    bottom: 120px; 
+    font-size: 50px; 
+    position: absolute; 
+}
+
+/* =========================================
+   5. ЛОГІКА РЕЖИМІВ (ДН vs WELCOME)
+   ========================================= */
 .birthday-mode #previewPhotoWrapper, 
 .birthday-mode #previewPosition,
 .birthday-mode #positionGroup {
@@ -152,21 +252,13 @@ textarea { height: 100px; resize: none; }
 }
 
 .birthday-mode #previewName {
-    font-size: 48px;
-    margin-top: 60px;
+    font-size: 52px;
+    margin-top: 80px;
+    line-height: 1.1;
 }
 
 .birthday-mode #previewMessage {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 30px;
+    max-width: 380px;
 }
-
-/* Декор (спрощено) */
-.decor {
-    position: absolute;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-}
-.decor-1 { width: 100px; height: 100px; top: -20px; right: -20px; }
-.decor-2 { width: 60px; height: 60px; bottom: 100px; left: -20px; }
-.decor-3 { width: 40px; height: 40px; top: 40%; right: 20px; }
