@@ -183,7 +183,7 @@ textarea {
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto;
-    position: relative; /* Важливо для прив'язки фото */
+    position: relative;
     background-color: #2a4a80;
 }
 
@@ -192,12 +192,7 @@ textarea {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    max-width: none;
-    /* Цей блок примусово зберігає пропорції будь-якого фото */
+    /* Ширина та висота видалені, їх додасть JavaScript */
 }
 
 #previewName {
