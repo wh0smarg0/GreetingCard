@@ -154,7 +154,7 @@ textarea {
 .birthday-mode #title {
     /* Збільшуємо відступ зверху, щоб опустити заголовок нижче зірок та конфетті */
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 2px;
     margin-bottom: 0px;
 }
 
@@ -167,11 +167,11 @@ textarea {
 .birthday-mode .photo-wrapper {
     display: flex;
     justify-content: center;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .birthday-mode .photo-circle {
-    border: 4px solid white;
+    border: 2px solid white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 

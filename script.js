@@ -23,9 +23,9 @@ function updateTemplate() {
         title.innerText = "ВІТАЄМО \n З ДНЕМ НАРОДЖЕННЯ!";
 
         // Ховаємо посаду, але ЗАЛИШАЄМО фото
-        posGroup.style.display = 'none';
-        previewPosition.style.display = 'none';
-        if(divider) divider.style.display = 'none';
+        posGroup.style.display = 'block';
+        previewPosition.style.display = 'block';
+        if(divider) divider.style.display = 'block';
     } else {
         card.classList.remove('birthday-mode');
         card.classList.add('welcome-mode');
