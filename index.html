@@ -12,12 +12,12 @@
 <div class="main-wrapper">
     <div class="settings-panel">
         <h1>UMO Generator</h1>
-        
+
         <div class="form-group">
             <label>Тип картки:</label>
             <select id="templateType" onchange="updateTemplate()">
-                <option value="welcome">Вітаємо в команді (з фото)</option>
-                <option value="birthday">День народження (без фото)</option>
+                <option value="welcome">Вітаємо в команді</option>
+                <option value="birthday">З Днем народження!</option>
             </select>
         </div>
 
@@ -61,14 +61,14 @@
 
                 <div class="photo-wrapper" id="previewPhotoWrapper">
                     <div class="photo-circle">
-                        <img id="previewPhoto" src="" alt="">
+                        <img id="previewPhoto" src="" alt="Фото">
                     </div>
                 </div>
 
                 <div class="text-block">
                     <h3 id="previewName">Ім’я Прізвище</h3>
                     <p id="previewPosition">Посада</p>
-                    <div class="divider"></div>
+                    <div class="divider" id="divider"></div>
                     <p id="previewMessage">Текст привітання буде тут...</p>
                 </div>
 
