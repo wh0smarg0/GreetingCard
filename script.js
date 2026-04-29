@@ -20,7 +20,7 @@ function updateTemplate() {
     if (type === 'birthday') {
         card.classList.remove('welcome-mode');
         card.classList.add('birthday-mode');
-        title.innerText = "З ДНЕМ НАРОДЖЕННЯ!";
+        title.innerText = "ВІТАЄМО \n З ДНЕМ НАРОДЖЕННЯ!";
 
         // Ховаємо посаду, але ЗАЛИШАЄМО фото
         posGroup.style.display = 'none';
