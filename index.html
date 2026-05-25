@@ -15,35 +15,53 @@
 
         <div class="form-group">
             <label>Тип картки:</label>
-            <select id="templateType" onchange="updateTemplate()">
+            <select id="templateType">
                 <option value="welcome">Вітаємо в команді</option>
                 <option value="birthday">З Днем народження!</option>
                 <option value="probation">Випробувальний термін</option>
             </select>
         </div>
 
-        <div class="form-group">
-            <label>Ім'я та Прізвище:</label>
-            <input type="text" id="name" placeholder="Бабич Вікторія" oninput="syncText()">
+        <div id="singleInputs">
+            <div class="form-group">
+                <label>Ім'я та Прізвище:</label>
+                <input type="text" id="name" placeholder="Бабич Вікторія">
+            </div>
+
+            <div class="form-group" id="positionGroup">
+                <label>Посада:</label>
+                <input type="text" id="position" placeholder="Менеджер з комунікацій">
+            </div>
+
+            <div class="form-group">
+                <label>Текст привітання:</label>
+                <textarea id="message" placeholder="Ваші побажання..."></textarea>
+            </div>
+
+            <div class="form-group" id="photoGroup">
+                <label>Фото співробітника:</label>
+                <input type="file" id="photo" accept="image/*">
+            </div>
         </div>
 
-        <div class="form-group" id="positionGroup">
-            <label>Посада:</label>
-            <input type="text" id="position" placeholder="Менеджер з комунікацій" oninput="syncText()">
-        </div>
+        <div id="multiInputs" style="display: none;">
+            <div class="form-group" id="globalMessageGroup">
+                <label>Верхній текст (вступ):</label>
+                <textarea id="globalMessage" rows="2" placeholder="Дуже раді, що ви стали частиною нашої команди..."></textarea>
+            </div>
 
-        <div class="form-group">
-            <label>Текст привітання:</label>
-            <textarea id="message" placeholder="Ваші побажання..." oninput="syncText()"></textarea>
-        </div>
+            <div class="form-group">
+                <label>Нижній текст (побажання):</label>
+                <textarea id="footerMessage" rows="2" placeholder="Віримо у подальші спільні успіхи..."></textarea>
+            </div>
 
-        <div class="form-group" id="photoGroup">
-            <label>Фото співробітника:</label>
-            <input type="file" id="photo" accept="image/*" onchange="handlePhoto(event)">
+            <div id="employeesForms" class="employees-forms-container"></div>
+
+            <button id="addEmployeeBtn" class="btn-add">+ Додати ще одного працівника</button>
         </div>
 
         <div class="actions">
-            <button class="btn-download" onclick="download()">Завантажити PNG</button>
+            <button class="btn-download" id="downloadBtn">ЗАВАНТАЖИТИ PNG</button>
         </div>
     </div>
 
@@ -54,26 +72,42 @@
             <div class="decor decor-3"></div>
 
             <div class="card-content">
-                <div class="logo-container">
-                    <img src="umo-logo-trans.png" alt="UMO" class="umo-logo">
-                </div>
-
-                <h2 id="title">ВІТАЄМО В КОМАНДІ!</h2>
-
-                <div class="photo-wrapper" id="previewPhotoWrapper">
-                    <div class="photo-circle">
-                        <img id="previewPhoto" src="" alt="Фото">
+                <div id="singlePreview">
+                    <div class="logo-container">
+                        <img src="umo-logo-trans.png" alt="UMO" class="umo-logo">
                     </div>
+                    <h2 id="title">ВІТАЄМО В КОМАНДІ!</h2>
+
+                    <div class="photo-wrapper" id="previewPhotoWrapper">
+                        <div class="photo-circle">
+                            <img id="previewPhoto" src="">
+                        </div>
+                    </div>
+
+                    <div class="text-block">
+                        <h3 id="previewName">Ім’я Прізвище</h3>
+                        <p id="previewPosition">Посада</p>
+                        <div class="divider" id="divider"></div>
+                        <p id="previewMessage" style="white-space: pre-wrap;">Текст привітання буде тут...</p>
+                    </div>
+                    <div class="footer-signature">Команда UMO</div>
                 </div>
 
-                <div class="text-block">
-                    <h3 id="previewName">Ім’я Прізвище</h3>
-                    <p id="previewPosition">Посада</p>
-                    <div class="divider" id="divider"></div>
-                    <p id="previewMessage">Текст привітання буде тут...</p>
+                <div id="multiPreview" style="display: none; text-align: center;">
+                    <div class="logo-container">
+                        <img src="umo-logo-trans.png" alt="UMO" class="umo-logo">
+                    </div>
+                    <h2 class="probation-title">ВІТАЄМО!</h2>
+                    <h3 class="probation-subtitle">з успішним проходженням випробувального терміну</h3>
+
+                    <p class="probation-intro" id="previewGlobalMessage"></p>
+                    <p class="probation-subintro">За цей час Ви чудово продемонстрували свої сильні сторони, які б ми хотіли відзначити:</p>
+
+                    <div id="previewGrid" class="preview-grid horizontal-grid"></div>
+
+                    <p class="probation-footer" id="previewFooterMessage"></p>
                 </div>
 
-                <div class="footer-signature">Команда UMO</div>
             </div>
         </div>
     </div>
