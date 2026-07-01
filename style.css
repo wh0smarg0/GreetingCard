@@ -38,6 +38,154 @@ body {
 }
 
 h1 {
+    color: var(--umo-blue);
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.form-group { margin-bottom: 18px; }
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+/* Поля форми без різких рамок */
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f4f7fa; /* Легкий фон для полів */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    background-color: #eef2f6;
+}
+
+textarea {
+    height: 110px;
+    resize: none;
+}
+
+.btn-download {
+    width: 100%;
+    padding: 18px;
+    background: var(--umo-blue);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(26, 54, 100, 0.3);
+    transition: 0.3s;
+}
+
+.btn-download:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   3. КАРТКА ПРЕВ'Ю (ЗОВНІШНІ КАРТИНКИ)
+   ========================================= */
+.card {
+    width: 500px;
+    height: 700px;
+    background-color: var(--umo-blue);
+
+    /* --- ПРИМУСОВЕ РОЗТЯГУВАННЯ ФОНУ --- */
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(26, 54, 100, 0.2);
+}
+
+.birthday-mode {
+    background-image: url('bg-birthday.png'); /* Якщо зберегли як .png, змініть тут */
+}
+
+/* Ідеально чисте лого без фону */
+.umo-logo {
+    width: 120px;
+    margin-bottom: 20px;
+    mix-blend-mode: screen;
+    /* Знебарвлюємо та викручуємо контраст, щоб вбити сірий контур */
+    filter: grayscale(100%) contrast(500%);
+}
+
+#title {
+    font-weight: 900;
+    font-size: 26px;
+    margin: 20px 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Окреме правило ТІЛЬКИ для картки з Днем народження */
+.birthday-mode #title {
+    /* Збільшуємо відступ зверху, щоб опустити заголовок нижче зірок та конфетті */
+    font-size: 20px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+/* Інші стилі для режиму ДН (залишаються без змін) */
+.birthday-mode #previewPosition,
+.birthday-mode #positionGroup {
+    display: none;
+}
+
+.birthday-mode .photo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.birthday-mode .photo-circle {
+    border: 2px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.birthday-mode #previewName {
+    font-size: 30px;
+    margin-top: 10px;
+    line-height: 1.1;
+}
+
+/* =========================================
+   4. ФОТО ТА ТЕКСТ
+   ========================================= */
+.photo-wrapper {
+    margin: 10px auto 10px auto;
+}
+
+.photo-circle {
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto;
@@ -65,280 +213,316 @@ h1 {
 }
 
 #previewName {
+    font-size: 36px;
+    font-weight: 900;
+    margin: 5px 0 5px 0;
+}
+
+#previewPosition {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 5px 0 5px 0;
+}
+
+.divider {
+    width: 50px;
+    height: 3px;
+    background: white;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+#previewMessage {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 340px;
+    margin: 0 auto;
+    font-weight: 400;
+
+    /* --- НОВІ ПРАВИЛА ДЛЯ ТЕКСТУ --- */
+    white-space: pre-wrap;     /* Зберігає абзаци та переноси рядків з форми (Enter) */
+    overflow-wrap: break-word; /* Автоматично переносить занадто довгі слова на новий рядок */
+    hyphens: auto;             /* Вмикає правильне перенесення слів з дефісами (згідно з lang="uk" в HTML) */
+}
+
+.footer-signature {
+    margin-top: auto;
+    font-weight: bold;
+    font-size: 14px;
     opacity: 0.7;
     letter-spacing: 0.5px;
 }
 
-    /* Динамічні форми */
+/* Динамічні форми */
 
-    /* Individual employee form block */
-    .employee-form-block {
-        background: #f9f9f9;
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-    }
+/* Individual employee form block */
+.employee-form-block {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
 
-    .btn-add {
-        background: #e3f2fd;
-        color: #0d47a1;
-        font-weight: bold;
-        border: 1px dashed #0d47a1;
-        padding: 12px;
-        cursor: pointer;
-        border-radius: 8px;
-        width: 100%;
-        margin-bottom: 20px;
-        transition: 0.2s;
-    }
-    .btn-add:hover {
-        background: #bbdefb;
-    }
-    .btn-remove {
-        background: #ffebee;
-        color: #c62828;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 12px;
-    }
+.btn-add {
+    background: #e3f2fd;
+    color: #0d47a1;
+    font-weight: bold;
+    border: 1px dashed #0d47a1;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+.btn-add:hover {
+    background: #bbdefb;
+}
+.btn-remove {
+    background: #ffebee;
+    color: #c62828;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
 
-    /* Сітка працівників на картці */
-    .preview-grid {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap; /* Дозволяє переносити на новий рядок, якщо працівників багато */
-        margin: 20px 0;
-        width: 100%;
-    }
+/* Сітка працівників на картці */
+.preview-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Дозволяє переносити на новий рядок, якщо працівників багато */
+    margin: 20px 0;
+    width: 100%;
+}
 
-    /* Container for dynamic forms (ЗМІНЕНО НА ГОРИЗОНТАЛЬНИЙ СКРОЛ) */
-    .employees-forms-container {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-        margin-bottom: 20px;
-        width: 100%;
+/* Container for dynamic forms (ЗМІНЕНО НА ГОРИЗОНТАЛЬНИЙ СКРОЛ) */
+.employees-forms-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
 
-        /* Вмикаємо горизонтальну прокрутку */
-        overflow-x: auto;
-        padding-bottom: 12px; /* Місце для повзунка, щоб він не перекривав поля */
+    /* Вмикаємо горизонтальну прокрутку */
+    overflow-x: auto;
+    padding-bottom: 12px; /* Місце для повзунка, щоб він не перекривав поля */
 
-        /* Кастомний скролбар для краси (працює в Chrome/Edge/Firefox) */
-        scrollbar-width: thin;
-        scrollbar-color: var(--umo-blue) #eef2f6;
-    }
+    /* Кастомний скролбар для краси (працює в Chrome/Edge/Firefox) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--umo-blue) #eef2f6;
+}
 
-    /* Кастомний скролбар для Webkit (Chrome, Safari, Edge) */
-    .employees-forms-container::-webkit-scrollbar {
-        height: 8px;
-    }
-    .employees-forms-container::-webkit-scrollbar-track {
-        background: #eef2f6;
-        border-radius: 4px;
-    }
-    .employees-forms-container::-webkit-scrollbar-thumb {
-        background-color: var(--umo-blue);
-        border-radius: 4px;
-    }
+/* Кастомний скролбар для Webkit (Chrome, Safari, Edge) */
+.employees-forms-container::-webkit-scrollbar {
+    height: 8px;
+}
+.employees-forms-container::-webkit-scrollbar-track {
+    background: #eef2f6;
+    border-radius: 4px;
+}
+.employees-forms-container::-webkit-scrollbar-thumb {
+    background-color: var(--umo-blue);
+    border-radius: 4px;
+}
 
-    /* Individual employee form block */
-    .employee-form-block {
-        background: #f9f9f9;
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
+/* Individual employee form block */
+.employee-form-block {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 
-        /* ВАЖЛИВО: фіксуємо ширину плашки, щоб вони не стискалися, а виходили за межі */
-        min-width: 280px;
-        flex-shrink: 0;
-    }
+    /* ВАЖЛИВО: фіксуємо ширину плашки, щоб вони не стискалися, а виходили за межі */
+    min-width: 280px;
+    flex-shrink: 0;
+}
 
-    .preview-employee-item {
-        text-align: center;
-        flex: 1;
-        min-width: 100px;
-        max-width: 160px; /* Захист від занадто широких колонок */
-        padding: 10px;
-        /* border: 1px solid #ccc; Розкоментуй, якщо хочеш щоб виглядало як таблиця на твоєму фото */
-    }
-    .preview-employee-item .photo-circle {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin: 0 auto 10px;
-    }
-    .preview-employee-item .placeholder-circle {
-        background: #e0e0e0; /* Сірий круг, якщо фото ще не завантажено */
-    }
-    .preview-employee-item .photo-circle img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Автоматично обрізає фото пропорційно */
-    }
-    .preview-employee-item h3 {
-        font-size: 14px;
-        margin: 0 0 5px;
-        line-height: 1.2;
-    }
-    .preview-employee-item p {
-        font-size: 12px;
-        margin: 0;
-        color: #555;
-    }
+.preview-employee-item {
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+    max-width: 160px; /* Захист від занадто широких колонок */
+    padding: 10px;
+    /* border: 1px solid #ccc; Розкоментуй, якщо хочеш щоб виглядало як таблиця на твоєму фото */
+}
+.preview-employee-item .photo-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 10px;
+}
+.preview-employee-item .placeholder-circle {
+    background: #e0e0e0; /* Сірий круг, якщо фото ще не завантажено */
+}
+.preview-employee-item .photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Автоматично обрізає фото пропорційно */
+}
+.preview-employee-item h3 {
+    font-size: 14px;
+    margin: 0 0 5px;
+    line-height: 1.2;
+}
+.preview-employee-item p {
+    font-size: 12px;
+    margin: 0;
+    color: #555;
+}
 
-    /* Тексти */
-    .preview-messages {
-        text-align: left;
-        margin-top: 15px;
-        font-size: 14px;
-    }
-    .individual-msg-block {
-        margin-bottom: 10px;
-    }
+/* Тексти */
+.preview-messages {
+    text-align: left;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.individual-msg-block {
+    margin-bottom: 10px;
+}
 
-    /* --- Специфічні стилі для горизонтальної картки випробувального терміну --- */
-    .card.probation-mode {
-        background-image: url('bg-probation.png'); /* Переконайтеся, що файл так називається */
-        width: 1000px;
-        min-height: 600px;
-        /* Трохи збільшуємо внутрішні відступи, щоб текст не наїжджав на 3D-декор по краях */
-        padding: 30px 80px 80px 80px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center; /* Центруємо весь контент */
-        color: #ffffff; /* Увесь текст білий для контрасту з оливковим фоном */
-    }
+/* --- Специфічні стилі для горизонтальної картки випробувального терміну --- */
+.card.probation-mode {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.2)), url('bg-probation.png'); /* Переконайтеся, що файл так називається */
+    width: 1000px;
+    min-height: 600px;
+    /* Трохи збільшуємо внутрішні відступи, щоб текст не наїжджав на 3D-декор по краях */
+    padding: 30px 80px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Центруємо весь контент */
+    color: #ffffff; /* Увесь текст білий для контрасту з оливковим фоном */
+}
 
-    /* Відміняємо інверсію для лого, якщо воно має бути видимим */
-    .card.probation-mode .umo-logo {
-        mix-blend-mode: normal;
-        filter: brightness(0) invert(1); /* Робить лого ідеально білим */
-        margin-bottom: 10px;
-    }
+/* Відміняємо інверсію для лого, якщо воно має бути видимим */
+.card.probation-mode .umo-logo {
+    mix-blend-mode: normal;
+    filter: brightness(0) invert(1); /* Робить лого ідеально білим */
+    margin-bottom: 10px;
+}
 
-    /* Тексти заголовків */
-    .probation-title {
-        font-size: 32px; /* Збільшено для кращої читабельності */
-        font-weight: 900;
-        margin: 0 0 10px 0;
-        letter-spacing: 1px;
-    }
+/* Тексти заголовків */
+.probation-title {
+    font-size: 32px; /* Збільшено для кращої читабельності */
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+}
 
-    .probation-subtitle {
-        font-size: 24px;
-        font-weight: 700;
-        margin: 0 0 25px 0;
-    }
+.probation-subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 25px 0;
+}
 
-    .probation-intro {
-        font-size: 18px;
-        font-weight: 700;
-        margin: 0 0 10px 0;
-        text-align: center;
-    }
+.probation-intro {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
 
-    .probation-subintro {
-        font-size: 16px;
-        font-weight: 400; /* Зроблено трохи тоншим для контрасту із заголовком */
-        margin: 0 0 15px 0;
-        text-align: center;
-    }
+.probation-subintro {
+    font-size: 16px;
+    font-weight: 400; /* Зроблено трохи тоншим для контрасту із заголовком */
+    margin: 0 0 15px 0;
+    text-align: center;
+}
 
-    /* Горизонтальна сітка */
-    .horizontal-grid {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 30px; /* Збільшено відстань між працівниками */
-        margin: 10px 0;
-        width: 100%;
-    }
+/* Горизонтальна сітка */
+.horizontal-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px; /* Збільшено відстань між працівниками */
+    margin: 10px 0;
+    width: 100%;
+}
 
-    .horizontal-item {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        max-width: 180px; /* Дозволяємо блоку бути трохи ширшим */
-    }
+.horizontal-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 180px; /* Дозволяємо блоку бути трохи ширшим */
+}
 
-    .horizontal-item .photo-circle {
-        width: 130px;
-        height: 130px;
-        border-radius: 50%;
-        background-color: #1a5c7f;
-        border: 3px solid rgba(255, 255, 255, 0.2); /* Легка обводка навколо фото */
-        margin-bottom: 15px;
-        overflow: hidden;
-        box-shadow: 0 8px 15px rgba(0,0,0,0.15); /* М'яка тінь для фото */
-    }
+.horizontal-item .photo-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #1a5c7f;
+    border: 3px solid rgba(255, 255, 255, 0.2); /* Легка обводка навколо фото */
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15); /* М'яка тінь для фото */
+}
 
-    .horizontal-item .emp-name {
-        font-size: 16px;
-        font-weight: 900;
-        font-style: italic;
-        margin: 0 0 5px 0;
-        color: #ffffff;
-    }
+.horizontal-item .emp-name {
+    font-size: 16px;
+    font-weight: 900;
+    font-style: italic;
+    margin: 0 0 5px 0;
+    color: #ffffff;
+}
 
-    .horizontal-item .emp-position {
-        font-size: 13px;
-        font-style: italic;
-        margin: 0 0 15px 0;
-        /* Важливо: змінив з темного #333 на світлий, щоб було видно на зеленому */
-        color: rgba(255, 255, 255, 0.8);
-    }
+.horizontal-item .emp-position {
+    font-size: 13px;
+    font-style: italic;
+    margin: 0 0 15px 0;
+    /* Важливо: змінив з темного #333 на світлий, щоб було видно на зеленому */
+    color: rgba(255, 255, 255, 0.8);
+}
 
-    /* Список досягнень під фото */
-    .emp-bullets {
-        text-align: left;
-        width: 100%;
-        font-size: 13px;
-        line-height: 1; /* Більша відстань між рядками досягнень */
-        color: #ffffff;
-    }
+/* Список досягнень під фото */
+.emp-bullets {
+    text-align: left;
+    width: 100%;
+    font-size: 13px;
+    line-height: 1; /* Більша відстань між рядками досягнень */
+    color: #ffffff;
+}
 
-    .bullet-item {
-        margin-bottom: 4px;
-        position: relative;
-        padding-left: 12px; /* Місце для кастомного дефіса */
-    }
+.bullet-item {
+    margin-bottom: 4px;
+    position: relative;
+    padding-left: 12px; /* Місце для кастомного дефіса */
+}
 
-    /* Кастомний акуратний дефіс перед досягненням */
-    .bullet-item::before {
-        content: "-";
-        position: absolute;
-        left: 0;
-        color: rgba(255, 255, 255, 0.7);
-    }
+/* Кастомний акуратний дефіс перед досягненням */
+.bullet-item::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
 
-    /* Нижні тексти */
-    .probation-footer {
-        font-size: 18px;
-        font-weight: 700;
-        margin-top: auto; /* Притискає текст до низу */
-        text-align: center;
-        margin-bottom: 15px;
-    }
+/* Нижні тексти */
+.probation-footer {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: auto; /* Притискає текст до низу */
+    text-align: center;
+    margin-bottom: 15px;
+}
 
-    .probation-signature {
-        text-align: right;
-        font-size: 16px;
-        font-weight: 900;
-        margin-top: 10px;
-        width: 100%;
-        opacity: 0.9;
-    }
+.probation-signature {
+    text-align: right;
+    font-size: 16px;
+    font-weight: 900;
+    margin-top: 10px;
+    width: 100%;
+    opacity: 0.9;
+}
