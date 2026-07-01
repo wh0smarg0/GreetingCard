@@ -18,6 +18,14 @@ body {
     min-height: 100vh;
 }
 
+.umo-logo {
+    width: 120px;
+    margin-bottom: 20px;
+    mix-blend-mode: screen;
+    /* Знебарвлюємо та викручуємо контраст, щоб вбити сірий контур */
+    filter: grayscale(100%) contrast(500%);
+}
+
 /* Контейнер без різких тіней та контурів */
 .main-wrapper {
     display: flex;
