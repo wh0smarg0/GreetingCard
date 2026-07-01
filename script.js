@@ -1,6 +1,6 @@
 // Стан додатку
 let employeesData = [{ id: Date.now(), name: '', position: '', message: '', photo: '' }];
-let currentMode = 'welcome';
+let currentMode = 'birthday';
 
 // DOM елементи
 const templateSelect = document.getElementById('templateType');
@@ -30,6 +30,23 @@ const addEmployeeBtn = document.getElementById('addEmployeeBtn');
 const previewGridContainer = document.getElementById('previewGrid');
 const previewGlobalMessage = document.getElementById('previewGlobalMessage');
 const previewFooterMessage = document.getElementById('previewFooterMessage');
+const probationTitleInput =
+    document.getElementById('probationTitle');
+
+const probationSubtitleInput =
+    document.getElementById('probationSubtitle');
+
+const probationSubintroInput =
+    document.getElementById('probationSubintro');
+
+const previewProbationTitle =
+    document.getElementById('previewProbationTitle');
+
+const previewProbationSubtitle =
+    document.getElementById('previewProbationSubtitle');
+
+const previewProbationSubintro =
+    document.getElementById('previewProbationSubintro');
 const downloadBtn = document.getElementById('downloadBtn');
 
 // Ініціалізація
@@ -43,6 +60,9 @@ function initializeApp() {
 
     globalMessageInput.addEventListener('input', syncMultiMode);
     footerMessageInput.addEventListener('input', syncMultiMode);
+    probationTitleInput.addEventListener('input', syncMultiMode);
+    probationSubtitleInput.addEventListener('input', syncMultiMode);
+    probationSubintroInput.addEventListener('input', syncMultiMode);
     addEmployeeBtn.addEventListener('click', addNewEmployee);
     downloadBtn.addEventListener('click', downloadCard);
 
@@ -64,6 +84,20 @@ function handleModeChange() {
         multiPreviewPanel.style.display = 'block';
 
         // Дефолтні тексти для випробувального терміну
+        if (!probationTitleInput.value) {
+            probationTitleInput.value = "ВІТАЄМО!";
+        }
+
+        if (!probationSubtitleInput.value) {
+            probationSubtitleInput.value =
+                "з успішним проходженням випробувального терміну";
+        }
+
+        if (!probationSubintroInput.value) {
+            probationSubintroInput.value =
+                "За цей час Ви чудово продемонстрували свої сильні сторони, які б ми хотіли відзначити:";
+        }
+
         if (!globalMessageInput.value) {
             globalMessageInput.value = "Дуже раді, що Ви стали частиною нашої команди!";
         }
@@ -79,7 +113,7 @@ function handleModeChange() {
         if (currentMode === 'birthday') {
             titleElement.innerText = "ВІТАЄМО \n З ДНЕМ НАРОДЖЕННЯ!";
         } else {
-            titleElement.innerText = "ВІТАЄМО В КОМАНДІ!";
+            titleElement.innerText = "ВІТАЄМО!";
         }
 
         singleInputsPanel.style.display = 'block';
@@ -262,8 +296,23 @@ function renderDynamicForms() {
 
 // Синхронізація мульти режиму
 function syncMultiMode() {
-    previewGlobalMessage.innerText = globalMessageInput.value;
-    previewFooterMessage.innerText = footerMessageInput.value;
+
+    previewProbationTitle.innerText =
+        probationTitleInput.value || "ВІТАЄМО!";
+
+    previewProbationSubtitle.innerText =
+        probationSubtitleInput.value ||
+        "з успішним проходженням випробувального терміну";
+
+    previewProbationSubintro.innerText =
+        probationSubintroInput.value ||
+        "За цей час Ви чудово продемонстрували свої сильні сторони, які б ми хотіли відзначити:";
+
+    previewGlobalMessage.innerText =
+        globalMessageInput.value;
+
+    previewFooterMessage.innerText =
+        footerMessageInput.value;
 
     previewGridContainer.innerHTML = '';
 
