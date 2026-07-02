@@ -134,7 +134,7 @@ textarea {
 
 .card.birthday-mode {
     width: 1000px;
-    height: 560px;
+    height: 660px;
 
     background-image: url('bg-birthday.png');
     background-size: cover;
@@ -161,7 +161,7 @@ textarea {
 /* Окреме правило ТІЛЬКИ для картки з Днем народження */
 .birthday-mode #title {
     /* Збільшуємо відступ зверху, щоб опустити заголовок нижче зірок та конфетті */
-    font-size: 20px;
+    font-size: 28px;
     margin-top: 2px;
     margin-bottom: 0px;
 }
@@ -205,7 +205,7 @@ textarea {
     padding: 10px 24px;
     border-radius: 30px;
     margin: 20px 0 10px 0;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 900;
 }
 
@@ -215,29 +215,29 @@ textarea {
     padding: 10px 10px;
     margin: 5px 0;
     text-align: center;
-    min-width: 320px;
+    min-width: 420px;
 }
 
 .birthday-person-card #previewName {
     color: white;
     margin: 0;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 900;
 }
 
 .birthday-person-card #previewPosition {
     color: white;
     margin-top: 6px;
-    font-size: 16px;
+    font-size: 20px;
     display: block;
 }
 
 .birthday-mode #previewMessage {
     background: rgba(255,255,255,0.85);
-    padding: 15px 20px;
+    padding: 20px 5px;
     border-radius: 12px;
     color: #333;
-    max-width: 380px;
+    max-width: 400px;
 }
 
 /* =========================================
@@ -293,9 +293,9 @@ textarea {
 }
 
 #previewMessage {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.6;
-    max-width: 340px;
+    max-width: 440px;
     margin: 0 auto;
     font-weight: 400;
 
