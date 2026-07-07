@@ -537,6 +537,7 @@ textarea {
 
 .horizontal-item .emp-position {
     font-size: 13px;
+    font-weight: 700;
     font-style: italic;
     margin: 0 0 15px 0;
     /* Важливо: змінив з темного #333 на світлий, щоб було видно на зеленому */
