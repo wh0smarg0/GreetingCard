@@ -498,11 +498,16 @@ textarea {
 
 /* Горизонтальна сітка */
 .horizontal-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    justify-content: center;
     gap: 10px;
     width: 100%;
     align-items: start;
+}
+
+.horizontal-grid.six-items {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .horizontal-item {
