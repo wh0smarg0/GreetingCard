@@ -499,26 +499,25 @@ textarea {
 /* Горизонтальна сітка */
 .horizontal-grid {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    gap: 30px; /* Збільшено відстань між працівниками */
-    margin: 10px 0;
+    gap: 10px;
     width: 100%;
 }
 
 .horizontal-item {
-    flex: 1;
+    flex: 0 0 calc((100% - 50px) / 6);
+    max-width: calc((100% - 50px) / 6);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 180px; /* Дозволяємо блоку бути трохи ширшим */
 }
 
 .horizontal-item .photo-circle {
-    width: 130px;
-    height: 130px;
+    width: 105px;
+    height: 105px;
+    margin-bottom: 10px;
     border-radius: 50%;
     background-color: #1a5c7f;
     border: 3px solid rgba(255, 255, 255, 0.2); /* Легка обводка навколо фото */
@@ -528,7 +527,7 @@ textarea {
 }
 
 .horizontal-item .emp-name {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 900;
     font-style: italic;
     margin: 0 0 5px 0;
@@ -536,7 +535,7 @@ textarea {
 }
 
 .horizontal-item .emp-position {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     font-style: italic;
     margin: 0 0 15px 0;
@@ -548,8 +547,8 @@ textarea {
 .emp-bullets {
     text-align: left;
     width: 100%;
-    font-size: 13px;
-    line-height: 1; /* Більша відстань між рядками досягнень */
+    font-size: 11px;
+    line-height: 1.15; /* Більша відстань між рядками досягнень */
     color: #ffffff;
 }
 
