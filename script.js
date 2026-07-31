@@ -342,6 +342,11 @@ function syncMultiMode() {
         `;
         previewGridContainer.appendChild(gridBox);
     });
+
+    previewGridContainer.classList.toggle(
+        "six-items",
+        employeesData.length === 6
+    );
 }
 
 // Завантаження
