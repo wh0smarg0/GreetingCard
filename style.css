@@ -498,9 +498,10 @@ textarea {
 
 /* Горизонтальна сітка */
 .horizontal-grid {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+    display: grid;
+    /* minmax(0, 1fr) гарантує 7 ідеально рівних колонок незалежно від тексту */
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px; /* Трішки зменшено проміжок між колонками */
     width: 100%;
     align-items: start;
 }
@@ -515,7 +516,7 @@ textarea {
 .horizontal-item {
     max-width: none;
     width: 100%;
-    min-width: 0;
+    min-width: 0; /* Критично важливо для стискання Grid-елементів */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -523,15 +524,14 @@ textarea {
 }
 
 .horizontal-item .photo-circle {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 10px;
+    width: 85px; /* Трохи зменшено діаметр для повної безпеки */
+    height: 85px;
     border-radius: 50%;
     background-color: #1a5c7f;
-    border: 3px solid rgba(255, 255, 255, 0.2); /* Легка обводка навколо фото */
-    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15); /* М'яка тінь для фото */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .horizontal-item .emp-name {
@@ -540,6 +540,9 @@ textarea {
     font-style: italic;
     margin: 0 0 5px 0;
     color: #ffffff;
+    /* Додано захист від довгих прізвищ */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .horizontal-item .emp-position {
@@ -547,11 +550,10 @@ textarea {
     font-weight: 700;
     font-style: italic;
     margin: 0 0 15px 0;
+    color: rgba(255, 255, 255, 0.8);
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    /* Важливо: змінив з темного #333 на світлий, щоб було видно на зеленому */
-    color: rgba(255, 255, 255, 0.8);
 }
 
 /* Список досягнень під фото */
@@ -559,14 +561,18 @@ textarea {
     text-align: left;
     width: 100%;
     font-size: 11px;
-    line-height: 1.15; /* Більша відстань між рядками досягнень */
+    line-height: 1.15; 
     color: #ffffff;
+    /* ВАЖЛИВО: перенесення слів у списку досягнень */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .bullet-item {
     margin-bottom: 4px;
     position: relative;
-    padding-left: 12px; /* Місце для кастомного дефіса */
+    padding-left: 12px; 
 }
 
 /* Кастомний акуратний дефіс перед досягненням */
