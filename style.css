@@ -453,7 +453,7 @@ textarea {
     width: 1000px;
     min-height: 600px;
     /* Трохи збільшуємо внутрішні відступи, щоб текст не наїжджав на 3D-декор по краях */
-    padding: 30px 80px 80px 80px;
+    padding: 30px 40px 80px 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -508,11 +508,14 @@ textarea {
 .horizontal-grid.six-items {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    gap: 10px; /* або зменште gap до 5px, якщо все ще тісно */
+    width: 100%;
 }
 
 .horizontal-item {
     max-width: none;
     width: 100%;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -544,6 +547,9 @@ textarea {
     font-weight: 700;
     font-style: italic;
     margin: 0 0 15px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
     /* Важливо: змінив з темного #333 на світлий, щоб було видно на зеленому */
     color: rgba(255, 255, 255, 0.8);
 }
