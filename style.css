@@ -498,12 +498,11 @@ textarea {
 
 /* Горизонтальна сітка */
 .horizontal-grid {
-    display: grid;
-    /* minmax(0, 1fr) гарантує 7 ідеально рівних колонок незалежно від тексту */
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 8px; /* Трішки зменшено проміжок між колонками */
+    display: flex;             /* Повертаємо flex для адаптивного центрування */
+    justify-content: center;   /* Центрує картки, якщо їх менше 7 */
+    align-items: flex-start;
+    gap: 8px;
     width: 100%;
-    align-items: start;
 }
 
 .horizontal-grid.six-items {
@@ -514,9 +513,14 @@ textarea {
 }
 
 .horizontal-item {
-    max-width: none;
-    width: 100%;
-    min-width: 0; /* Критично важливо для стискання Grid-елементів */
+    /* flex: 1 1 0 дозволяє колонкам рівномірно стискатися і ділити простір */
+    flex: 1 1 0; 
+    
+    /* max-width обмежує ширину. 125px — це ідеальний розмір 1/7 від ширини вашої картки. 
+       Завдяки цьому 2-3 людини не будуть розтягуватися на кілометр, а виглядатимуть акуратно по центру */
+    max-width: 125px; 
+    
+    min-width: 0; /* Критично важливо! Захищає від розриву сітки довгими словами */
     display: flex;
     flex-direction: column;
     align-items: center;
