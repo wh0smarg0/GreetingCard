@@ -111,9 +111,9 @@ function handleModeChange() {
         cardElement.classList.add(`${currentMode}-mode`);
 
         if (currentMode === 'birthday') {
-            titleElement.innerText = "ВІТАЄМО \n З ДНЕМ НАРОДЖЕННЯ!";
+            titleElement.innerText = "";
         } else {
-            titleElement.innerText = "ВІТАЄМО!";
+            titleElement.innerText = "";
         }
 
         singleInputsPanel.style.display = 'block';
