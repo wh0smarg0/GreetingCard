@@ -453,7 +453,7 @@ textarea {
     width: 1000px;
     min-height: 600px;
     /* Трохи збільшуємо внутрішні відступи, щоб текст не наїжджав на 3D-декор по краях */
-    padding: 30px 80px 80px 80px;
+    padding: 30px 40px 80px 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -498,65 +498,85 @@ textarea {
 
 /* Горизонтальна сітка */
 .horizontal-grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: flex;             /* Повертаємо flex для адаптивного центрування */
+    justify-content: center;   /* Центрує картки, якщо їх менше 7 */
     align-items: flex-start;
-    gap: 30px; /* Збільшено відстань між працівниками */
-    margin: 10px 0;
+    gap: 8px;
+    width: 100%;
+}
+
+.horizontal-grid.six-items {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px; /* або зменште gap до 5px, якщо все ще тісно */
     width: 100%;
 }
 
 .horizontal-item {
-    flex: 1;
+    /* flex: 1 1 0 дозволяє колонкам рівномірно стискатися і ділити простір */
+    flex: 1 1 0; 
+    
+    /* max-width обмежує ширину. 125px — це ідеальний розмір 1/7 від ширини вашої картки. 
+       Завдяки цьому 2-3 людини не будуть розтягуватися на кілометр, а виглядатимуть акуратно по центру */
+    max-width: 125px; 
+    
+    min-width: 0; /* Критично важливо! Захищає від розриву сітки довгими словами */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 180px; /* Дозволяємо блоку бути трохи ширшим */
 }
 
 .horizontal-item .photo-circle {
-    width: 130px;
-    height: 130px;
+    width: 85px; /* Трохи зменшено діаметр для повної безпеки */
+    height: 85px;
     border-radius: 50%;
     background-color: #1a5c7f;
-    border: 3px solid rgba(255, 255, 255, 0.2); /* Легка обводка навколо фото */
-    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15); /* М'яка тінь для фото */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .horizontal-item .emp-name {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 900;
     font-style: italic;
     margin: 0 0 5px 0;
     color: #ffffff;
+    /* Додано захист від довгих прізвищ */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .horizontal-item .emp-position {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 700;
     font-style: italic;
     margin: 0 0 15px 0;
-    /* Важливо: змінив з темного #333 на світлий, щоб було видно на зеленому */
     color: rgba(255, 255, 255, 0.8);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Список досягнень під фото */
 .emp-bullets {
     text-align: left;
     width: 100%;
-    font-size: 13px;
-    line-height: 1; /* Більша відстань між рядками досягнень */
+    font-size: 11px;
+    line-height: 1.15; 
     color: #ffffff;
+    /* ВАЖЛИВО: перенесення слів у списку досягнень */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .bullet-item {
     margin-bottom: 4px;
     position: relative;
-    padding-left: 12px; /* Місце для кастомного дефіса */
+    padding-left: 12px; 
 }
 
 /* Кастомний акуратний дефіс перед досягненням */
