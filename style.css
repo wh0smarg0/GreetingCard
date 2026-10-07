@@ -523,51 +523,82 @@ textarea {
     filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(700%) hue-rotate(42deg) brightness(95%) contrast(85%);
 }
 
-/* 4. Тексти під логотипом */
+/* 4. Тексти під логотипом (Вступ) */
 .card.probation-mode .probation-intro {
-    display: block !important;
-    color: #222222 !important; /* Робимо чорним для максимального контрасту */
+    display: inline-block !important; /* Щоб плашка облягала текст, а не тягнулася на всю ширину */
+    background-color: rgba(255, 255, 255, 0.85); /* Світла напівпрозора плашка */
+    padding: 8px 25px; /* Внутрішні відступи плашки */
+    border-radius: 20px; /* М'які закруглені кути */
+    color: #222222 !important; 
     
-    /* Піднімаємо текст ВИЩЕ дрона (у вільну зону під фоновим заголовком) */
-    margin-top: 85px !important; 
-    margin-bottom: 5px;
-    font-size: 17px;
-    
-    /* ДОДАНО: М'яке біле світіння навколо тексту для читабельності */
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
+    /* ВАЖЛИВО: Опускаємо текст НИЖЧЕ фонового напису */
+    margin-top: 130px !important; 
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    text-shadow: none; /* Прибираємо світіння, бо тепер є плашка */
 }
 
 .card.probation-mode .probation-subintro {
-    display: block !important;
+    display: inline-block !important;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 8px 25px;
+    border-radius: 20px;
     color: #222222 !important;
+    
     margin-top: 0;
     margin-bottom: 0;
     font-size: 15px;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+    text-shadow: none;
 }
 
 /* 5. Сітка працівників */
 .card.probation-mode .preview-grid {
-    /* Опускаємо працівників нижче дрона (якщо налізають — збільште цифру до 180px) */
-    margin-top: 150px !important; 
+    margin-top: 130px !important; /* Відштовхуємо працівників нижче дрона */
     width: 100%;
 }
 
-/* ДОДАНО: Світіння для текстів працівників, щоб вони добре читалися на фоні води і лісу */
-.horizontal-item .emp-name,
-.horizontal-item .emp-position,
-.emp-bullets {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 3px rgba(255, 255, 255, 0.7);
+/* Додаємо легкі плашки і під текст працівників для читабельності */
+.horizontal-item .emp-name {
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 2px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    color: #222222;
+    margin-bottom: 5px;
+    text-shadow: none;
 }
 
-/* 6. Нижній текст */
+.horizontal-item .emp-position {
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 2px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    color: #55613d;
+    margin-bottom: 15px;
+    text-shadow: none;
+}
+
+.emp-bullets {
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #222222;
+    text-shadow: none;
+}
+
+/* 6. Нижній текст (Футер) */
 .card.probation-mode .probation-footer {
+    display: inline-block !important;
+    background-color: rgba(255, 255, 255, 0.85); /* Плашка для нижнього тексту */
+    padding: 10px 30px;
+    border-radius: 20px;
     color: #222222 !important;
-    margin-top: auto !important; 
     
-    /* Піднімаємо текст трохи вище від нижнього краю, щоб не перекривати декор */
-    margin-bottom: 25px !important; 
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
+    margin-top: auto !important; 
+    margin-bottom: 30px !important; /* Піднімаємо вище, щоб не налазило на нижній декор */
+    text-shadow: none;
 }
 
 /* =========================================
@@ -638,39 +669,6 @@ textarea {
     margin-bottom: 12px;
     overflow: hidden;
     box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-}
-
-.horizontal-item .emp-name {
-    font-size: 13px;
-    font-weight: 900;
-    font-style: italic;
-    margin: 0 0 5px 0;
-    color: #222222; /* Змінено на темний/чорний */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.horizontal-item .emp-position {
-    font-size: 11px;
-    font-weight: 700;
-    font-style: italic;
-    margin: 0 0 15px 0;
-    color: #55613d; /* Змінено на темний хакі (як на картці ДН) */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-}
-
-/* Список досягнень під фото */
-.emp-bullets {
-    text-align: left;
-    width: 100%;
-    font-size: 11px;
-    line-height: 1.15; 
-    color: #222222; /* Змінено на темний/чорний */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
 }
 
 /* Кастомний акуратний дефіс перед досягненням */
