@@ -49,6 +49,33 @@ const previewProbationSubintro =
     document.getElementById('previewProbationSubintro');
 const downloadBtn = document.getElementById('downloadBtn');
 
+function colorizeLogo() {
+    const logoEl = document.querySelector('.umo-logo');
+    if (!logoEl) return;
+
+    const img = new Image();
+    img.crossOrigin = "Anonymous"; // Запобігає помилкам доступу
+    img.src = logoEl.src;
+
+    img.onload = function() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        // Малюємо оригінальне біле/прозоре лого
+        ctx.drawImage(img, 0, 0);
+
+        // Режим накладання: замінює колір тільки там, де є непрозорі пікселі
+        ctx.globalCompositeOperation = 'source-in';
+        ctx.fillStyle = '#55613d'; // Темний хакі
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Підміняємо src у тегу <img> на вже пофарбовану версію
+        logoEl.src = canvas.toDataURL('image/png');
+    };
+}
+
 // Ініціалізація
 function initializeApp() {
     templateSelect.addEventListener('change', handleModeChange);
@@ -67,6 +94,7 @@ function initializeApp() {
     downloadBtn.addEventListener('click', downloadCard);
 
     handleModeChange();
+    colorizeLogo();
 }
 
 // Перемикання режимів
