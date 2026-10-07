@@ -489,11 +489,6 @@ textarea {
    ========================================= */
 
 /* 1. Робимо контейнер гнучким, щоб розкидати елементи по висоті картки */
-/* =========================================
-   ВИРІВНЮВАННЯ В МУЛЬТИ-РЕЖИМІ (Випробувальний термін)
-   ========================================= */
-
-/* 1. Робимо контейнер гнучким, щоб розкидати елементи по висоті картки */
 #multiPreview {
     display: flex;
     flex-direction: column;
@@ -519,8 +514,10 @@ textarea {
     margin: 0 !important;
     z-index: 10;
     
-    /* Фільтр для хакі */
-    filter: brightness(0) invert(36%) sepia(12%) saturate(996%) hue-rotate(45deg) brightness(97%) contrast(93%);
+    mix-blend-mode: normal !important;
+    
+    /* Фільтр: робить логотип чорним і тонує в хакі */
+    filter: brightness(0) invert(36%) sepia(12%) saturate(996%) hue-rotate(45deg) brightness(97%) contrast(93%) !important;
 }
 
 /* 4. Тексти під логотипом (Вступ) */
