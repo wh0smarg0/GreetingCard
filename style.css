@@ -460,47 +460,89 @@ textarea {
 }
 
 /* --- Специфічні стилі для горизонтальної картки випробувального терміну --- */
+/* =========================================
+   1. ОНОВЛЕНІ СТИЛІ ДЛЯ КАРТКИ (Виправляємо зникнення людей)
+   ========================================= */
 .card.probation-mode {
-    /* 1. Прибираємо напівпрозорий градієнт, який робив картинку блідою */
-    background-image: url('bg-probation.jpg'); 
-    
+    background-image: url('bg-probation.jpg');
     width: 1000px;
-    height: 600px; /* Фіксуємо висоту, щоб картка не стрибала */
     
-    /* 2. Вміщуємо фон цілком без обрізання країв */
-    background-size: 100% 100%; 
+    /* ВАЖЛИВО: Змінюємо height на min-height, щоб картка вміщувала працівників */
+    min-height: 600px; 
+    height: auto; 
+    
+    background-size: 100% 100%;
     background-position: center top;
     background-repeat: no-repeat;
     
-    /* 3. Збільшуємо відступ зверху (250px), щоб опустити співробітників під текст, який вже є на картинці */
-    padding: 250px 40px 30px 40px; 
-    
+    /* Прибрано гігантський відступ зверху, тепер все буде йти по порядку */
+    padding: 30px 40px 30px 40px; 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center; 
-    color: #ffffff; 
+    align-items: center;
     box-sizing: border-box;
 }
 
-/* Відміняємо інверсію для лого, якщо воно має бути видимим */
-.card.probation-mode .umo-logo {
-    display: block !important;
-    position: absolute; /* Відв'язуємо від загального відступу картки */
-    top: 30px; /* Відстань від самого верху */
-    left: 50%; /* Центруємо по горизонталі */
-    transform: translateX(-50%); /* Точне центрування */
-    
-    mix-blend-mode: normal; /* Відміняємо старий ефект накладання */
-    filter: brightness(0); /* Робить логотип ідеально чорним */
-    margin-bottom: 0;
+/* =========================================
+   2. ЛОГОТИП ТА ЗАГОЛОВКИ
+   ========================================= */
+/* Ховаємо ТІЛЬКИ "ВІТАЄМО!", якщо воно вже намальоване на фоні */
+.card.probation-mode .probation-title {
+    display: none !important;
 }
 
-.card.probation-mode .probation-title,
+/* Залишаємо ці три тексти, робимо їх кольором хакі */
 .card.probation-mode .probation-subtitle,
 .card.probation-mode .probation-intro,
 .card.probation-mode .probation-subintro {
-    display: none !important;
+    display: block !important;
+    color: #55613d !important;
+}
+
+.card.probation-mode .probation-subtitle {
+    margin-top: 10px; /* Відступ, оскільки головний заголовок приховано */
+}
+
+/* Логотип: менший, вище і колір хакі */
+.card.probation-mode .umo-logo {
+    display: block !important;
+    position: static !important; /* Повертаємо у звичайний потік, щоб не накладався на текст */
+    width: 75px; /* Зробили значно меншим */
+    margin-top: 0;
+    margin-bottom: 10px;
+    
+    mix-blend-mode: normal;
+    /* Цей фільтр перетворює чорний/білий колір картинки на хакі (#55613d) */
+    filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(700%) hue-rotate(42deg) brightness(95%) contrast(85%);
+}
+
+/* =========================================
+   3. КОЛЬОРИ ТЕКСТУ ПРАЦІВНИКІВ
+   ========================================= */
+.horizontal-item .emp-name {
+    color: #222222; /* Чорне прізвище */
+}
+
+.horizontal-item .emp-position {
+    color: #55613d; /* Хакі для посади */
+}
+
+.emp-bullets {
+    color: #222222; /* Чорний текст досягнень */
+}
+
+.bullet-item::before {
+    color: #55613d; /* Хакі для дефісів */
+}
+
+.probation-footer {
+    color: #222222; /* Чорний текст внизу */
+    margin-top: auto; 
+}
+
+.probation-signature {
+    color: #222222; 
 }
 
 /* Горизонтальна сітка */
