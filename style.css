@@ -555,7 +555,7 @@ textarea {
 
 /* 5. Сітка працівників */
 .card.probation-mode .preview-grid {
-    margin-top: 130px !important; /* Відштовхуємо працівників нижче дрона */
+    margin-top: 50px !important; /* Відштовхуємо працівників нижче дрона */
     width: 100%;
 }
 
