@@ -461,51 +461,46 @@ textarea {
 
 /* --- Специфічні стилі для горизонтальної картки випробувального терміну --- */
 .card.probation-mode {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.2)), url('bg-probation.jpg'); /* Переконайтеся, що файл так називається */
+    /* 1. Прибираємо напівпрозорий градієнт, який робив картинку блідою */
+    background-image: url('bg-probation.jpg'); 
+    
     width: 1000px;
-    min-height: 600px;
-    /* Трохи збільшуємо внутрішні відступи, щоб текст не наїжджав на 3D-декор по краях */
-    padding: 30px 40px 80px 40px;
+    height: 600px; /* Фіксуємо висоту, щоб картка не стрибала */
+    
+    /* 2. Вміщуємо фон цілком без обрізання країв */
+    background-size: 100% 100%; 
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+    /* 3. Збільшуємо відступ зверху (250px), щоб опустити співробітників під текст, який вже є на картинці */
+    padding: 250px 40px 30px 40px; 
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center; /* Центруємо весь контент */
-    color: #ffffff; /* Увесь текст білий для контрасту з оливковим фоном */
+    align-items: center; 
+    color: #ffffff; 
+    box-sizing: border-box;
 }
 
 /* Відміняємо інверсію для лого, якщо воно має бути видимим */
 .card.probation-mode .umo-logo {
-    mix-blend-mode: normal;
-    filter: brightness(0) invert(1); /* Робить лого ідеально білим */
-    margin-bottom: 10px;
+    display: block !important;
+    position: absolute; /* Відв'язуємо від загального відступу картки */
+    top: 30px; /* Відстань від самого верху */
+    left: 50%; /* Центруємо по горизонталі */
+    transform: translateX(-50%); /* Точне центрування */
+    
+    mix-blend-mode: normal; /* Відміняємо старий ефект накладання */
+    filter: brightness(0); /* Робить логотип ідеально чорним */
+    margin-bottom: 0;
 }
 
-/* Тексти заголовків */
-.probation-title {
-    font-size: 32px; /* Збільшено для кращої читабельності */
-    font-weight: 900;
-    margin: 0 0 10px 0;
-    letter-spacing: 1px;
-}
-
-.probation-subtitle {
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0 0 25px 0;
-}
-
-.probation-intro {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0 0 10px 0;
-    text-align: center;
-}
-
-.probation-subintro {
-    font-size: 16px;
-    font-weight: 400; /* Зроблено трохи тоншим для контрасту із заголовком */
-    margin: 0 0 15px 0;
-    text-align: center;
+.card.probation-mode .probation-title,
+.card.probation-mode .probation-subtitle,
+.card.probation-mode .probation-intro,
+.card.probation-mode .probation-subintro {
+    display: none !important;
 }
 
 /* Горизонтальна сітка */
@@ -555,8 +550,7 @@ textarea {
     font-weight: 900;
     font-style: italic;
     margin: 0 0 5px 0;
-    color: #ffffff;
-    /* Додано захист від довгих прізвищ */
+    color: #222222; /* Змінено на темний/чорний */
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -566,7 +560,7 @@ textarea {
     font-weight: 700;
     font-style: italic;
     margin: 0 0 15px 0;
-    color: rgba(255, 255, 255, 0.8);
+    color: #55613d; /* Змінено на темний хакі (як на картці ДН) */
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
@@ -578,17 +572,10 @@ textarea {
     width: 100%;
     font-size: 11px;
     line-height: 1.15; 
-    color: #ffffff;
-    /* ВАЖЛИВО: перенесення слів у списку досягнень */
+    color: #222222; /* Змінено на темний/чорний */
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-}
-
-.bullet-item {
-    margin-bottom: 4px;
-    position: relative;
-    padding-left: 12px; 
 }
 
 /* Кастомний акуратний дефіс перед досягненням */
@@ -596,16 +583,18 @@ textarea {
     content: "-";
     position: absolute;
     left: 0;
-    color: rgba(255, 255, 255, 0.7);
+    color: #55613d; /* Темний хакі для дефісів */
+    font-weight: bold;
 }
 
 /* Нижні тексти */
 .probation-footer {
     font-size: 18px;
     font-weight: 700;
-    margin-top: auto; /* Притискає текст до низу */
+    margin-top: auto; 
     text-align: center;
     margin-bottom: 15px;
+    color: #222222; /* Чорний текст */
 }
 
 .probation-signature {
@@ -615,4 +604,5 @@ textarea {
     margin-top: 10px;
     width: 100%;
     opacity: 0.9;
+    color: #222222; /* Чорний текст */
 }
