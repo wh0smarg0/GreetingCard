@@ -565,7 +565,7 @@ textarea {
 /* 6. Нижній текст (Футер) */
 .card.probation-mode .probation-footer {
     display: block !important; 
-    color: #222222 !important;
+    color: #55613d  !important;
     font-weight: 900 !important; /* Робимо текст дуже жирним */
     font-size: 16px; /* За потреби можете змінити розмір */
     
