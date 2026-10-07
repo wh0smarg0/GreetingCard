@@ -677,3 +677,12 @@ textarea {
     opacity: 0.9;
     color: #222222; /* Чорний текст */
 }
+
+.probation-mode .probation-footer-signature {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+}
