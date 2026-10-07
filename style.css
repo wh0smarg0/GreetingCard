@@ -526,29 +526,48 @@ textarea {
 /* 4. Тексти під логотипом */
 .card.probation-mode .probation-intro {
     display: block !important;
-    color: #55613d !important;
-    margin-top: 150px !important; /* ВАЖЛИВО: Опускаємо цей текст під фоновий напис "з успішним проходженням..." */
+    color: #222222 !important; /* Робимо чорним для максимального контрасту */
+    
+    /* Піднімаємо текст ВИЩЕ дрона (у вільну зону під фоновим заголовком) */
+    margin-top: 85px !important; 
     margin-bottom: 5px;
+    font-size: 17px;
+    
+    /* ДОДАНО: М'яке біле світіння навколо тексту для читабельності */
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 .card.probation-mode .probation-subintro {
     display: block !important;
-    color: #55613d !important;
+    color: #222222 !important;
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 15px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 /* 5. Сітка працівників */
 .card.probation-mode .preview-grid {
-    margin-top: 60px !important; /* Відштовхуємо працівників нижче, щоб вони не перекривали дрона */
+    /* Опускаємо працівників нижче дрона (якщо налізають — збільште цифру до 180px) */
+    margin-top: 150px !important; 
     width: 100%;
+}
+
+/* ДОДАНО: Світіння для текстів працівників, щоб вони добре читалися на фоні води і лісу */
+.horizontal-item .emp-name,
+.horizontal-item .emp-position,
+.emp-bullets {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 3px rgba(255, 255, 255, 0.7);
 }
 
 /* 6. Нижній текст */
 .card.probation-mode .probation-footer {
     color: #222222 !important;
-    margin-top: auto !important; /* Тепер це притисне текст до самого низу завдяки flex: 1 у #multiPreview */
-    margin-bottom: 0 !important;
+    margin-top: auto !important; 
+    
+    /* Піднімаємо текст трохи вище від нижнього краю, щоб не перекривати декор */
+    margin-bottom: 25px !important; 
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 /* =========================================
