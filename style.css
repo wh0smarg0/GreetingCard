@@ -500,10 +500,13 @@ textarea {
 /* 2. Повертаємо "ВІТАЄМО!" та підзаголовок */
 .card.probation-mode .probation-title {
     display: block !important;
-    color: #222222 !important; /* Чорний колір */
-    margin-top: 110px !important; /* Відступаємо вниз, щоб пропустити логотип */
+    color: #222222 !important;
+    
+    /* Зменшено з 110px до 70px. Якщо потрібно ще вище - поставте 60px або 50px */
+    margin-top: 70px !important; 
+    
     margin-bottom: 5px;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8); /* Біле світіння для читабельності */
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 .card.probation-mode .probation-subtitle {
@@ -577,11 +580,7 @@ textarea {
 }
 
 .emp-bullets {
-    background-color: rgba(255, 255, 255, 0.75);
-    padding: 8px 12px;
-    border-radius: 10px;
-    color: #222222;
-    text-shadow: none;
+    display: none !important; /* Повністю ховаємо блок із досягненнями */
 }
 
 /* 6. Нижній текст (Футер) */
@@ -606,14 +605,6 @@ textarea {
 
 .horizontal-item .emp-position {
     color: #55613d; /* Хакі для посади */
-}
-
-.emp-bullets {
-    color: #222222; /* Чорний текст досягнень */
-}
-
-.bullet-item::before {
-    color: #55613d; /* Хакі для дефісів */
 }
 
 .probation-footer {
@@ -665,15 +656,6 @@ textarea {
     margin-bottom: 12px;
     overflow: hidden;
     box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-}
-
-/* Кастомний акуратний дефіс перед досягненням */
-.bullet-item::before {
-    content: "-";
-    position: absolute;
-    left: 0;
-    color: #55613d; /* Темний хакі для дефісів */
-    font-weight: bold;
 }
 
 .probation-signature {
