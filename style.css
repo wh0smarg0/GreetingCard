@@ -520,7 +520,7 @@ textarea {
     z-index: 10;
     
     /* Фільтр для хакі */
-    filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(700%) hue-rotate(42deg) brightness(95%) contrast(85%);
+    filter: brightness(0) invert(36%) sepia(12%) saturate(996%) hue-rotate(45deg) brightness(97%) contrast(93%);
 }
 
 /* 4. Тексти під логотипом (Вступ) */
