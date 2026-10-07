@@ -622,28 +622,22 @@ textarea {
 }
 
 .horizontal-item .emp-name {
-    /* Збільшено шрифт та саму плашку */
     font-size: 15px; 
-    background-color: rgba(255, 255, 255, 0.75);
-    padding: 4px 14px; 
-    border-radius: 10px;
-    display: inline-block;
     color: #55613d;
     margin: 0 0 6px 0;
     font-weight: 900;
     font-style: italic;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    text-shadow: none;
+    
+    /* Повертаємо біле світіння замість плашки для читабельності */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 4px rgba(255, 255, 255, 0.8) !important;
+    
+    /* Видалено: background-color, padding, border-radius, display: inline-block */
 }
 
 .horizontal-item .emp-position {
-    /* Збільшено шрифт та саму плашку */
     font-size: 13px; 
-    background-color: rgba(255, 255, 255, 0.75);
-    padding: 3px 12px; 
-    border-radius: 10px;
-    display: inline-block;
     color: #55613d;
     margin: 0 0 15px 0;
     font-weight: 700;
@@ -651,7 +645,11 @@ textarea {
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    text-shadow: none;
+    
+    /* Повертаємо біле світіння замість плашки */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 4px rgba(255, 255, 255, 0.8) !important;
+    
+    /* Видалено: background-color, padding, border-radius, display: inline-block */
 }
 
 .probation-signature {
