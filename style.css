@@ -498,7 +498,8 @@ textarea {
 }
 
 /* 2. Ховаємо чорне "ВІТАЄМО!", щоб не перекривало інші тексти */
-.card.probation-mode .probation-title {
+.card.probation-mode .probation-title,
+.card.probation-mode .probation-subtitle {
     display: none !important;
 }
 
@@ -515,14 +516,6 @@ textarea {
     
     /* Фільтр для хакі */
     filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(700%) hue-rotate(42deg) brightness(95%) contrast(85%);
-}
-
-/* 4. Тексти під логотипом (Опускаємо, щоб не налізали на лого) */
-.card.probation-mode .probation-subtitle {
-    display: block !important;
-    color: #55613d !important;
-    margin-top: 75px !important; /* Відступ від верху (щоб пропустити логотип) */
-    margin-bottom: 10px;
 }
 
 .card.probation-mode .probation-intro {
