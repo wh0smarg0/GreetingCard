@@ -489,15 +489,20 @@ textarea {
    ========================================= */
 
 /* 1. Робимо контейнер гнучким, щоб розкидати елементи по висоті картки */
+/* =========================================
+   ВИРІВНЮВАННЯ В МУЛЬТИ-РЕЖИМІ (Випробувальний термін)
+   ========================================= */
+
+/* 1. Робимо контейнер гнучким, щоб розкидати елементи по висоті картки */
 #multiPreview {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 540px; /* Вся доступна висота мінус відступи самої картки */
+    flex: 1; /* ВАЖЛИВО: Заповнює весь доступний простір, щоб footer міг притиснутися донизу */
     align-items: center;
 }
 
-/* 2. Ховаємо чорне "ВІТАЄМО!", щоб не перекривало інші тексти */
+/* 2. Ховаємо чорне "ВІТАЄМО!" та підзаголовок, щоб не перекривали фон */
 .card.probation-mode .probation-title,
 .card.probation-mode .probation-subtitle {
     display: none !important;
@@ -507,7 +512,7 @@ textarea {
 .card.probation-mode .umo-logo {
     display: block !important;
     position: absolute !important;
-    top: 25px; /* Відступ від верхнього краю */
+    top: 25px; 
     left: 50%;
     transform: translateX(-50%);
     width: 75px;
@@ -518,10 +523,11 @@ textarea {
     filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(700%) hue-rotate(42deg) brightness(95%) contrast(85%);
 }
 
+/* 4. Тексти під логотипом */
 .card.probation-mode .probation-intro {
     display: block !important;
     color: #55613d !important;
-    margin-top: 0;
+    margin-top: 150px !important; /* ВАЖЛИВО: Опускаємо цей текст під фоновий напис "з успішним проходженням..." */
     margin-bottom: 5px;
 }
 
@@ -532,17 +538,16 @@ textarea {
     margin-bottom: 0;
 }
 
-/* 5. Сітка працівників (Опускаємо ПІД дрона) */
+/* 5. Сітка працівників */
 .card.probation-mode .preview-grid {
-    /* Цей відступ "перестрибує" дрона. Якщо працівники все ще на дроні, збільште цю цифру (наприклад, 180px) */
-    margin-top: 150px; 
+    margin-top: 60px !important; /* Відштовхуємо працівників нижче, щоб вони не перекривали дрона */
     width: 100%;
 }
 
-/* 6. Нижній текст (Притискаємо до самого низу) */
+/* 6. Нижній текст */
 .card.probation-mode .probation-footer {
     color: #222222 !important;
-    margin-top: auto !important; /* Автоматично штовхає елемент в самий низ */
+    margin-top: auto !important; /* Тепер це притисне текст до самого низу завдяки flex: 1 у #multiPreview */
     margin-bottom: 0 !important;
 }
 
