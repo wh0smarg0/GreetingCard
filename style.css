@@ -539,17 +539,16 @@ textarea {
 }
 
 .card.probation-mode .probation-subintro {
-    display: inline-block !important;
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 8px 25px;
-    border-radius: 20px;
+    display: block !important;
     color: #222222 !important;
     
     margin-top: 0;
     margin-bottom: 0;
     font-size: 15px;
     font-weight: 700;
-    text-shadow: none;
+    
+    /* Повертаємо біле світіння замість плашки для читабельності */
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8) !important;
 }
 
 /* 5. Сітка працівників */
