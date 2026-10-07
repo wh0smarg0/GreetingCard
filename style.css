@@ -500,10 +500,10 @@ textarea {
 /* 2. Повертаємо "ВІТАЄМО!" та підзаголовок */
 .card.probation-mode .probation-title {
     display: block !important;
-    color: #222222 !important;
+    color: #55613d !important;
     
     /* Зменшено з 110px до 70px. Якщо потрібно ще вище - поставте 60px або 50px */
-    margin-top: 70px !important; 
+    margin-top: 50px !important; 
     
     margin-bottom: 5px;
     text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
@@ -554,7 +554,7 @@ textarea {
 
 /* 5. Сітка працівників */
 .card.probation-mode .preview-grid {
-    margin-top: 50px !important; /* Відштовхуємо працівників нижче дрона */
+    margin-top: 20px !important; /* Відштовхуємо працівників нижче дрона */
     width: 100%;
 }
 
@@ -564,15 +564,16 @@ textarea {
 
 /* 6. Нижній текст (Футер) */
 .card.probation-mode .probation-footer {
-    display: inline-block !important;
-    background-color: rgba(255, 255, 255, 0.85); /* Плашка для нижнього тексту */
-    padding: 10px 30px;
-    border-radius: 20px;
+    display: block !important; 
     color: #222222 !important;
+    font-weight: 900 !important; /* Робимо текст дуже жирним */
+    font-size: 16px; /* За потреби можете змінити розмір */
     
     margin-top: auto !important; 
-    margin-bottom: 30px !important; /* Піднімаємо вище, щоб не налазило на нижній декор */
-    text-shadow: none;
+    margin-bottom: 30px !important; 
+    
+    /* Повертаємо біле світіння замість плашки для читабельності */
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8) !important;
 }
 
 /* =========================================
