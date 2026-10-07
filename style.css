@@ -527,11 +527,6 @@ textarea {
     width: 75px;
     margin: 0 !important;
     z-index: 10;
-    
-    mix-blend-mode: normal !important;
-    
-    /* Фільтр: робить логотип чорним і тонує в хакі */
-    filter: brightness(0) invert(36%) sepia(12%) saturate(996%) hue-rotate(45deg) brightness(97%) contrast(93%) !important;
 }
 
 .card.probation-mode .probation-intro {
@@ -627,7 +622,7 @@ textarea {
     width: 115px; 
     height: 115px;
     border-radius: 50%;
-    background-color: #1a5c7f;
+    background-color: #55613d;
     border: 3px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 12px;
     overflow: hidden;
@@ -641,7 +636,7 @@ textarea {
     padding: 4px 14px; 
     border-radius: 10px;
     display: inline-block;
-    color: #222222;
+    color: #55613d;
     margin: 0 0 6px 0;
     font-weight: 900;
     font-style: italic;
