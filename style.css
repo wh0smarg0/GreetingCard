@@ -527,7 +527,7 @@ textarea {
 
 .card.probation-mode .probation-subintro {
     display: block !important;
-    color: #222222 !important;
+    color: #55613d !important;
     
     margin-top: 0;
     margin-bottom: 0;
@@ -566,7 +566,7 @@ textarea {
    3. КОЛЬОРИ ТЕКСТУ ПРАЦІВНИКІВ
    ========================================= */
 .horizontal-item .emp-name {
-    color: #222222; /* Чорне прізвище */
+    color: #55613d; /* Чорне прізвище */
 }
 
 .horizontal-item .emp-position {
@@ -574,12 +574,12 @@ textarea {
 }
 
 .probation-footer {
-    color: #222222; /* Чорний текст внизу */
+    color: #55613d; /* Чорний текст внизу */
     margin-top: auto; 
 }
 
 .probation-signature {
-    color: #222222; 
+    color: #55613d; 
 }
 
 /* Горизонтальна сітка */
@@ -661,7 +661,7 @@ textarea {
     margin-top: 10px;
     width: 100%;
     opacity: 0.9;
-    color: #222222; /* Чорний текст */
+    color: #55613d; /* Чорний текст */
 }
 
 .probation-mode .probation-footer-signature {
