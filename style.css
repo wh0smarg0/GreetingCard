@@ -488,12 +488,12 @@ textarea {
    2. ЛОГОТИП ТА ЗАГОЛОВКИ
    ========================================= */
 /* Ховаємо ТІЛЬКИ "ВІТАЄМО!", якщо воно вже намальоване на фоні */
+.card.probation-mode .probation-subtitle,
 .card.probation-mode .probation-title {
     display: none !important;
 }
 
 /* Залишаємо ці три тексти, робимо їх кольором хакі */
-.card.probation-mode .probation-subtitle,
 .card.probation-mode .probation-intro,
 .card.probation-mode .probation-subintro {
     display: block !important;
@@ -507,13 +507,17 @@ textarea {
 /* Логотип: менший, вище і колір хакі */
 .card.probation-mode .umo-logo {
     display: block !important;
-    position: static !important; /* Повертаємо у звичайний потік, щоб не накладався на текст */
-    width: 75px; /* Зробили значно меншим */
-    margin-top: 0;
-    margin-bottom: 10px;
+    position: absolute !important; /* Відв'язуємо від потоку інших елементів */
+    top: 40px; /* Регулюйте цю цифру, щоб підняти або опустити логотип */
+    left: 50% !important; /* Відштовхуємо рівно на середину екрана */
+    transform: translateX(-50%) !important; /* Вирівнюємо відносно власної ширини логотипа */
+    
+    width: 75px; 
+    margin: 0 !important; /* Прибираємо всі сторонні відступи */
+    z-index: 10;
     
     mix-blend-mode: normal;
-    /* Цей фільтр перетворює чорний/білий колір картинки на хакі (#55613d) */
+    /* Фільтр для кольору хакі */
     filter: brightness(0) saturate(100%) invert(35%) sepia(20%) saturate(700%) hue-rotate(42deg) brightness(95%) contrast(85%);
 }
 
