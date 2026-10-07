@@ -595,7 +595,7 @@ textarea {
     display: flex;             /* Повертаємо flex для адаптивного центрування */
     justify-content: center;   /* Центрує картки, якщо їх менше 7 */
     align-items: flex-start;
-    gap: 8px;
+    gap: 40px;
     width: 100%;
 }
 
