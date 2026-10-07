@@ -497,10 +497,21 @@ textarea {
     align-items: center;
 }
 
-/* 2. Ховаємо чорне "ВІТАЄМО!" та підзаголовок, щоб не перекривали фон */
-.card.probation-mode .probation-title,
+/* 2. Повертаємо "ВІТАЄМО!" та підзаголовок */
+.card.probation-mode .probation-title {
+    display: block !important;
+    color: #222222 !important; /* Чорний колір */
+    margin-top: 110px !important; /* Відступаємо вниз, щоб пропустити логотип */
+    margin-bottom: 5px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8); /* Біле світіння для читабельності */
+}
+
 .card.probation-mode .probation-subtitle {
-    display: none !important;
+    display: block !important;
+    color: #55613d !important; /* Темний хакі */
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 /* 3. Логотип (Жорстко фіксуємо зверху по центру) */
@@ -520,20 +531,8 @@ textarea {
     filter: brightness(0) invert(36%) sepia(12%) saturate(996%) hue-rotate(45deg) brightness(97%) contrast(93%) !important;
 }
 
-/* 4. Тексти під логотипом (Вступ) */
 .card.probation-mode .probation-intro {
-    display: inline-block !important; /* Щоб плашка облягала текст, а не тягнулася на всю ширину */
-    background-color: rgba(255, 255, 255, 0.85); /* Світла напівпрозора плашка */
-    padding: 8px 25px; /* Внутрішні відступи плашки */
-    border-radius: 20px; /* М'які закруглені кути */
-    color: #222222 !important; 
-    
-    /* ВАЖЛИВО: Опускаємо текст НИЖЧЕ фонового напису */
-    margin-top: 130px !important; 
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    text-shadow: none; /* Прибираємо світіння, бо тепер є плашка */
+    display: none !important;
 }
 
 .card.probation-mode .probation-subintro {
