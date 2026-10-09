@@ -599,15 +599,15 @@ textarea {
    Великі розміри, зсув від дрона
 ---------------------------------------------------- */
 .horizontal-grid.grid-small {
-    /* Зсуваємо вправо від дрона. Якщо треба саме вліво - напишіть flex-start */
-    justify-content: flex-end; 
-    gap: 40px;
-    padding-right: 50px; /* Відступ від правого краю картки */
+    /* Додаємо !important, щоб залізобетонно перебити центрування */
+    justify-content: flex-end !important; 
+    gap: 40px !important;
+    padding-right: 50px !important; /* Відступ від правого краю картки */
 }
 .horizontal-grid.grid-small .horizontal-item { max-width: 170px; }
 .horizontal-grid.grid-small .photo-circle { 
-    width: 135px; 
-    height: 135px; 
+    width: 150px; 
+    height: 150px; 
 }
 .horizontal-grid.grid-small .emp-name { font-size: 16px; }
 .horizontal-grid.grid-small .emp-position { font-size: 13px; }
@@ -623,8 +623,8 @@ textarea {
 }
 .horizontal-grid.grid-medium .horizontal-item { max-width: 140px; }
 .horizontal-grid.grid-medium .photo-circle { 
-    width: 115px; 
-    height: 115px; 
+    width: 125px; 
+    height: 125px; 
 }
 .horizontal-grid.grid-medium .emp-name { font-size: 14px; }
 .horizontal-grid.grid-medium .emp-position { font-size: 11px; }
@@ -640,8 +640,8 @@ textarea {
 }
 .horizontal-grid.grid-large .horizontal-item { max-width: 115px; }
 .horizontal-grid.grid-large .photo-circle { 
-    width: 90px; 
-    height: 90px; 
+    width: 100px; 
+    height: 100px; 
     border-width: 2px; /* Трохи тонша рамка навколо фото */
 }
 .horizontal-grid.grid-large .emp-name { 
@@ -720,25 +720,23 @@ textarea {
     text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Автоматично додаємо довге тире перед текстом підпису */
-.card.probation-mode .probation-signature::before {
-    content: ""; /* Прибираємо текстове тире */
-    display: block;
-    width: 60px; /* Довжина лінії (можете збільшити або зменшити) */
-    height: 4px; /* Товщина лінії (жирність) */
-    background-color: #55613d; /* Темний хакі (зелений) */
-    margin: 0 auto 8px auto; /* Центруємо лінію (auto з боків) і робимо відступ вниз до тексту (8px) */
+/* 6. Нижній текст (Футер) */
+.card.probation-mode .probation-footer-signature {
+    display: block !important;
+    text-align: center !important; 
+    font-weight: 700;
+    font-size: 14px;
+    color: #55613d;
+    margin-top: 15px; 
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8) !important;
 }
 
-/* 6. Нижній текст (Футер) */
-.card.probation-mode .probation-footer {
-    display: block !important; 
-    color: #55613d !important;
-    font-weight: 700 !important; /* Робимо трохи тоншим (було 900) */
-    font-size: 14px; /* Зменшуємо розмір */
-    
-    margin-top: auto !important; 
-    margin-bottom: 25px !important; 
-    
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8) !important;
+/* Жирна зелена лінія НАД текстом команди */
+.card.probation-mode .probation-footer-signature::before {
+    content: ""; 
+    display: block;
+    width: 60px; 
+    height: 4px; 
+    background-color: #55613d; 
+    margin: 0 auto 8px auto; 
 }
