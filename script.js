@@ -343,10 +343,18 @@ function syncMultiMode() {
         previewGridContainer.appendChild(gridBox);
     });
 
-    previewGridContainer.classList.toggle(
-        "six-items",
-        employeesData.length === 6
-    );
+    const itemCount = employeesData.length;
+
+    previewGridContainer.classList.remove('grid-small', 'grid-medium', 'grid-large', 'six-items');
+    
+    // 3. Назначаємо новий клас залежно від кількості
+    if (itemCount <= 3) {
+        previewGridContainer.classList.add('grid-small');
+    } else if (itemCount <= 5) {
+        previewGridContainer.classList.add('grid-medium');
+    } else {
+        previewGridContainer.classList.add('grid-large'); // Для 6-7 працівників
+    }
 }
 
 // Завантаження
