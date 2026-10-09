@@ -652,20 +652,33 @@ textarea {
     text-shadow: none !important;
 }
 
-.probation-signature {
-    text-align: right;
-    font-size: 16px;
-    font-weight: 900;
-    margin-top: 10px;
-    width: 100%;
-    opacity: 0.9;
-    color: #55613d; /* Чорний текст */
+/* Підпис команди */
+.card.probation-mode .probation-signature {
+    display: block !important;
+    text-align: center !important; /* Центруємо підпис під побажанням */
+    font-weight: 700;
+    font-size: 14px;
+    color: #55613d;
+    margin-top: 15px;
+    
+    /* Додаємо біле світіння для читабельності на фоні */
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Автоматично додаємо довге тире перед текстом підпису */
+.card.probation-mode .probation-signature::before {
+    content: ""; /* Прибираємо текстове тире */
+    display: block;
+    width: 60px; /* Довжина лінії (можете збільшити або зменшити) */
+    height: 4px; /* Товщина лінії (жирність) */
+    background-color: #55613d; /* Темний хакі (зелений) */
+    margin: 0 auto 8px auto; /* Центруємо лінію (auto з боків) і робимо відступ вниз до тексту (8px) */
 }
 
 /* 6. Нижній текст (Футер) */
 .card.probation-mode .probation-footer {
     display: block !important; 
-    color: #222222 !important;
+    color: #55613d !important;
     font-weight: 700 !important; /* Робимо трохи тоншим (було 900) */
     font-size: 14px; /* Зменшуємо розмір */
     
