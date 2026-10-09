@@ -540,7 +540,7 @@ textarea {
 
 /* 5. Сітка працівників */
 .card.probation-mode .preview-grid {
-    margin-top: 50px !important; /* Збільшено відступ, щоб фото не налізали на дрона */
+    margin-top: 10px !important; /* Збільшено відступ, щоб фото не налізали на дрона */
     width: 100%;
 }
 
@@ -556,7 +556,7 @@ textarea {
     font-size: 16px; /* За потреби можете змінити розмір */
     
     margin-top: auto !important; 
-    margin-bottom: 30px !important; 
+    margin-bottom: 10px !important; 
     
     /* Повертаємо біле світіння замість плашки для читабельності */
     text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8) !important;
@@ -604,6 +604,11 @@ textarea {
     gap: 40px !important;
     padding-right: 50px !important; /* Відступ від правого краю картки */
 }
+
+.horizontal-grid.grid-small .horizontal-item:only-child {
+    margin-right: 180px !important; 
+}
+
 .horizontal-grid.grid-small .horizontal-item { max-width: 170px; }
 .horizontal-grid.grid-small .photo-circle { 
     width: 150px; 
